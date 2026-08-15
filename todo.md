@@ -10,3 +10,4 @@
 - [x] Apply Alpha Academy navy-blue and champagne-gold styling with correct Arabic RTL alignment.
 - [x] Add automated tests covering RSVP validation, database submission behavior, and owner-only response access.
 - [x] Verify the public and owner experiences at desktop and mobile sizes, then save a release checkpoint.
+- [x] Correct the public RSVP venue name to Al-Saleeb Church Halls, Qassaa / قاعات كنيسة الصليب، القصاع and save a verified checkpoint.

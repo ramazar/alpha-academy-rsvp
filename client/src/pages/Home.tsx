@@ -122,8 +122,8 @@ export default function Home() {
                 <DetailRow icon={<Clock3 className="h-5 w-5" />} english="6:00 PM" arabic="الساعة 6:00 مساءً" />
                 <DetailRow
                   icon={<MapPin className="h-5 w-5" />}
-                  english="Al-Saleeh Church Halls, Qassaa"
-                  arabic="قاعات كنيسة الصليح، القصاع"
+                  english="Al-Saleeb Church Halls, Qassaa"
+                  arabic="قاعات كنيسة الصليب، القصاع"
                 />
               </div>
             </div>

@@ -25,4 +25,14 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+export const rsvpResponses = mysqlTable("rsvpResponses", {
+  id: int("id").autoincrement().primaryKey(),
+  fullName: varchar("fullName", { length: 160 }).notNull(),
+  phoneNumber: varchar("phoneNumber", { length: 40 }).notNull(),
+  attendanceStatus: mysqlEnum("attendanceStatus", ["attending", "not_attending"])
+    .notNull(),
+  submittedAt: timestamp("submittedAt").defaultNow().notNull(),
+});
+
+export type RsvpResponse = typeof rsvpResponses.$inferSelect;
+export type InsertRsvpResponse = typeof rsvpResponses.$inferInsert;

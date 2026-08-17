@@ -39,7 +39,7 @@ export default function Admin() {
               This response dashboard is restricted to the Alpha Academy owner.
             </p>
             <Button asChild className="mt-6 bg-[#052b60] text-white hover:bg-[#083a7a]">
-              <Link href="/">Back to RSVP page</Link>
+              <Link href="/">Back to confirmation page</Link>
             </Button>
           </section>
         ) : (
@@ -51,7 +51,7 @@ export default function Admin() {
                   Alpha Academy
                 </div>
                 <h1 className="font-display text-3xl font-semibold tracking-tight text-[#052b60] sm:text-4xl">
-                  RSVP responses
+                  Confirmation responses
                 </h1>
                 <p lang="ar" dir="rtl" className="mt-2 font-arabic text-lg text-[#7b5a1b]">
                   قائمة تأكيد الحضور للفعالية
@@ -77,9 +77,9 @@ export default function Admin() {
                   <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#f7f0e3] text-[#a97722]">
                     <UsersRound className="h-6 w-6" />
                   </div>
-                  <p className="mt-5 font-semibold text-[#052b60]">No RSVP responses yet</p>
+                    <p className="mt-5 font-semibold text-[#052b60]">No confirmation responses yet</p>
                   <p className="mt-2 max-w-sm text-sm leading-6 text-[#6c7180]">
-                    Responses submitted through the public RSVP page will appear here.
+                    Responses submitted through the public confirmation page will appear here.
                   </p>
                 </div>
               ) : (

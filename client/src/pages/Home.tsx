@@ -155,13 +155,13 @@ export default function Home() {
                     onClick={() => setSubmitted(false)}
                     className="mt-8 border-[#052b60] text-[#052b60] hover:bg-[#052b60] hover:text-white"
                   >
-                    Submit another RSVP
+                    Confirm another guest
                   </Button>
                 </div>
               ) : (
                 <>
                   <div className="relative">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a97722]">RSVP</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a97722]">Confirm</p>
                     <h2 lang="ar" dir="rtl" className="mt-3 font-arabic text-3xl font-bold text-[#052b60]">
                       أكّدوا حضوركم
                     </h2>
@@ -285,7 +285,7 @@ export default function Home() {
                       disabled={submitRsvp.isPending}
                       className="h-13 w-full rounded-xl bg-[#052b60] text-base font-semibold text-white shadow-lg shadow-[#052b60]/20 transition hover:bg-[#083a7a] active:scale-[0.98]"
                     >
-                      {submitRsvp.isPending ? "Submitting…" : "Confirm RSVP"}
+                      {submitRsvp.isPending ? "Confirming…" : "Confirm"}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
@@ -295,7 +295,7 @@ export default function Home() {
           </section>
         </div>
         <footer className="flex flex-col gap-3 border-t border-[#d8b16c]/45 pt-5 text-xs text-[#738099] sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Alpha Academy. Event RSVP.</p>
+          <p>© 2026 Alpha Academy. Event confirmation.</p>
           <a href="/admin" className="font-semibold text-[#805e1f] transition hover:text-[#052b60]">Organizer access</a>
         </footer>
       </main>

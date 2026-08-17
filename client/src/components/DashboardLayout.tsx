@@ -28,8 +28,8 @@ import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
 const menuItems = [
-  { icon: Users, label: "RSVP responses", path: "/admin" },
-  { icon: LayoutDashboard, label: "Public RSVP page", path: "/" },
+  { icon: Users, label: "Confirmations", path: "/admin" },
+  { icon: LayoutDashboard, label: "Public confirmation page", path: "/" },
 ];
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";

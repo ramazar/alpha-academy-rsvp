@@ -14,3 +14,4 @@
 - [x] Add a required guest-role selection for طالب or أستاذ, save the role with RSVP responses, display it in the organizer dashboard, and release the update.
 - [x] Enforce a non-null guest role in RSVP storage, preserving any existing responses safely.
 - [x] Verify the role column in the organizer dashboard and save a final guest-role release checkpoint.
+- [x] Remove RSVP wording from the public form and use Confirm language consistently, then verify and release the update.

@@ -7,6 +7,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
 
 const attendanceSchema = z.enum(["attending", "not_attending"]);
+const guestRoleSchema = z.enum(["student", "teacher"]);
 
 const ownerProcedure = protectedProcedure.use(({ ctx, next }) => {
   if (ctx.user.role !== "admin") {
@@ -40,6 +41,7 @@ export const appRouter = router({
             .min(7, "Please enter a valid phone number.")
             .max(40)
             .regex(/^[+()\-\s0-9]+$/, "Please enter a valid phone number."),
+          guestRole: guestRoleSchema,
           attendanceStatus: attendanceSchema,
         }),
       )

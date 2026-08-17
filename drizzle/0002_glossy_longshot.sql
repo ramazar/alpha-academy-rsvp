@@ -1,0 +1,1 @@
+ALTER TABLE `rsvpResponses` ADD `guestRole` enum('student','teacher');

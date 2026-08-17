@@ -29,6 +29,9 @@ export const rsvpResponses = mysqlTable("rsvpResponses", {
   id: int("id").autoincrement().primaryKey(),
   fullName: varchar("fullName", { length: 160 }).notNull(),
   phoneNumber: varchar("phoneNumber", { length: 40 }).notNull(),
+  guestRole: mysqlEnum("guestRole", ["student", "teacher", "not_specified"])
+    .default("not_specified")
+    .notNull(),
   attendanceStatus: mysqlEnum("attendanceStatus", ["attending", "not_attending"])
     .notNull(),
   submittedAt: timestamp("submittedAt").defaultNow().notNull(),

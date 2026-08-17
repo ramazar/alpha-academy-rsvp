@@ -15,6 +15,20 @@
       "when": 1786785374242,
       "tag": "0001_charming_fantastic_four",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786996029923,
+      "tag": "0002_glossy_longshot",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1786996183441,
+      "tag": "0003_fixed_tiger_shark",
+      "breakpoints": true
     }
   ]
 }

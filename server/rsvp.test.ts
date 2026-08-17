@@ -46,6 +46,7 @@ describe("rsvp router", () => {
       caller.rsvp.submit({
         fullName: "Rana Haddad",
         phoneNumber: "+963 944 123 456",
+        guestRole: "student",
         attendanceStatus: "attending",
       }),
     ).resolves.toEqual({ success: true });
@@ -53,6 +54,7 @@ describe("rsvp router", () => {
     expect(mockedCreateRsvpResponse).toHaveBeenCalledWith({
       fullName: "Rana Haddad",
       phoneNumber: "+963 944 123 456",
+      guestRole: "student",
       attendanceStatus: "attending",
     });
   });
@@ -64,8 +66,23 @@ describe("rsvp router", () => {
       caller.rsvp.submit({
         fullName: "Rana Haddad",
         phoneNumber: "invalid-number",
+        guestRole: "teacher",
         attendanceStatus: "attending",
       }),
+    ).rejects.toMatchObject({ code: "BAD_REQUEST" });
+
+    expect(mockedCreateRsvpResponse).not.toHaveBeenCalled();
+  });
+
+  it("requires guests to select a role", async () => {
+    const caller = appRouter.createCaller(createContext());
+
+    await expect(
+      caller.rsvp.submit({
+        fullName: "Rana Haddad",
+        phoneNumber: "+963 944 123 456",
+        attendanceStatus: "attending",
+      } as never),
     ).rejects.toMatchObject({ code: "BAD_REQUEST" });
 
     expect(mockedCreateRsvpResponse).not.toHaveBeenCalled();
@@ -76,6 +93,7 @@ describe("rsvp router", () => {
       id: 1,
       fullName: "Rana Haddad",
       phoneNumber: "+963 944 123 456",
+      guestRole: "student" as const,
       attendanceStatus: "attending" as const,
       submittedAt: new Date("2026-08-01T10:00:00.000Z"),
     };

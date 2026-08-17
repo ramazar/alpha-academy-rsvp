@@ -1,0 +1,1 @@
+ALTER TABLE `rsvpResponses` MODIFY COLUMN `guestRole` enum('student','teacher','not_specified') NOT NULL DEFAULT 'not_specified';

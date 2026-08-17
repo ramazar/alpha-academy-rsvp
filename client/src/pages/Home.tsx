@@ -4,16 +4,19 @@ import { FormEvent, useState } from "react";
 import { trpc } from "@/lib/trpc";
 
 type AttendanceStatus = "attending" | "not_attending";
+type GuestRole = "student" | "teacher";
 
 type FormState = {
   fullName: string;
   phoneNumber: string;
+  guestRole: GuestRole | "";
   attendanceStatus: AttendanceStatus | "";
 };
 
 const initialForm: FormState = {
   fullName: "",
   phoneNumber: "",
+  guestRole: "",
   attendanceStatus: "",
 };
 
@@ -59,6 +62,7 @@ export default function Home() {
     const nextErrors: Partial<Record<keyof FormState, string>> = {};
     if (form.fullName.trim().length < 2) nextErrors.fullName = "Please enter your full name.";
     if (form.phoneNumber.trim().length < 7) nextErrors.phoneNumber = "Please enter a valid phone number.";
+    if (!form.guestRole) nextErrors.guestRole = "Please select your role.";
     if (!form.attendanceStatus) nextErrors.attendanceStatus = "Please choose an attendance option.";
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
@@ -70,6 +74,7 @@ export default function Home() {
     await submitRsvp.mutateAsync({
       fullName: form.fullName.trim(),
       phoneNumber: form.phoneNumber.trim(),
+      guestRole: form.guestRole as GuestRole,
       attendanceStatus: form.attendanceStatus as AttendanceStatus,
     });
   };
@@ -196,6 +201,42 @@ export default function Home() {
                       />
                       {errors.phoneNumber && <span className="mt-1.5 block text-xs text-[#b44f43]">{errors.phoneNumber}</span>}
                     </label>
+
+                    <fieldset>
+                      <legend className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#052b60]">
+                        You are <span lang="ar" dir="rtl" className="font-arabic font-medium text-[#805e1f]">أنت</span>
+                      </legend>
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          { value: "student" as const, label: "Student", arabic: "طالب" },
+                          { value: "teacher" as const, label: "Teacher", arabic: "أستاذ" },
+                        ].map(option => {
+                          const isSelected = form.guestRole === option.value;
+                          return (
+                            <button
+                              key={option.value}
+                              type="button"
+                              onClick={() => updateField("guestRole", option.value)}
+                              className={`min-h-16 rounded-xl border p-3 text-left transition ${
+                                isSelected
+                                  ? "border-[#052b60] bg-[#052b60] text-white shadow-lg shadow-[#052b60]/15"
+                                  : "border-[#d8b16c]/50 bg-[#fffdf9] text-[#052b60] hover:border-[#052b60]/70"
+                              }`}
+                              aria-pressed={isSelected}
+                            >
+                              <span className="flex items-center justify-between gap-2 text-sm font-semibold">
+                                {option.label}
+                                {isSelected && <Check className="h-4 w-4 text-[#f1cf92]" />}
+                              </span>
+                              <span lang="ar" dir="rtl" className={`mt-1 block font-arabic text-sm ${isSelected ? "text-[#f8e8c8]" : "text-[#805e1f]"}`}>
+                                {option.arabic}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {errors.guestRole && <span className="mt-1.5 block text-xs text-[#b44f43]">{errors.guestRole}</span>}
+                    </fieldset>
 
                     <fieldset>
                       <legend className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#052b60]">

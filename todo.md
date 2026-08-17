@@ -11,3 +11,6 @@
 - [x] Add automated tests covering RSVP validation, database submission behavior, and owner-only response access.
 - [x] Verify the public and owner experiences at desktop and mobile sizes, then save a release checkpoint.
 - [x] Correct the public RSVP venue name to Al-Saleeb Church Halls, Qassaa / قاعات كنيسة الصليب، القصاع and save a verified checkpoint.
+- [x] Add a required guest-role selection for طالب or أستاذ, save the role with RSVP responses, display it in the organizer dashboard, and release the update.
+- [x] Enforce a non-null guest role in RSVP storage, preserving any existing responses safely.
+- [x] Verify the role column in the organizer dashboard and save a final guest-role release checkpoint.

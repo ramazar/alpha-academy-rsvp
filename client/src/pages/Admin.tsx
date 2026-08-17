@@ -84,10 +84,11 @@ export default function Admin() {
                 </div>
               ) : (
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[680px] text-left">
+                  <table className="w-full min-w-[780px] text-left">
                     <thead className="bg-[#f9f5ed] text-xs font-bold uppercase tracking-[0.12em] text-[#6f5629]">
                       <tr>
                         <th className="px-6 py-4">Guest</th>
+                        <th className="px-6 py-4">Role</th>
                         <th className="px-6 py-4">Phone number</th>
                         <th className="px-6 py-4">Attendance</th>
                         <th className="px-6 py-4">Submitted</th>
@@ -97,6 +98,11 @@ export default function Admin() {
                       {responsesQuery.data?.map(response => (
                         <tr key={response.id} className="transition-colors hover:bg-[#fffdf9]">
                           <td className="px-6 py-5 font-semibold text-[#052b60]">{response.fullName}</td>
+                          <td className="px-6 py-5">
+                            <Badge className="rounded-full bg-[#f5ead3] px-3 py-1 text-[#805e1f] hover:bg-[#f5ead3]">
+                              {response.guestRole === "student" ? "طالب · Student" : response.guestRole === "teacher" ? "أستاذ · Teacher" : "Not provided"}
+                            </Badge>
+                          </td>
                           <td className="px-6 py-5 font-mono text-xs text-[#475a79]">{response.phoneNumber}</td>
                           <td className="px-6 py-5">
                             <Badge
